@@ -61,3 +61,8 @@ FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id)
 CREATE INDEX treatment_id_join_index
 ON join_treatments_medical_histories (treatment_id);
 
+-- Index for faster searching of join table by medical history id
+
+CREATE INDEX medical_id_join_index
+ON join_treatments_medical_histories (medical_history_id);
+
