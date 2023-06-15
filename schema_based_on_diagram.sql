@@ -47,6 +47,7 @@ name varchar
 );
 
 -- Table to join treatments and medical histories
+
 CREATE TABLE join_treatments_medical_histories (
 id int PRIMARY KEY IDENTITY (1,1),
 treatment_id int,
@@ -54,3 +55,9 @@ medical_history_id int,
 FOREIGN KEY (treatment_id) REFERENCES treatments(id),
 FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id)
 );
+
+-- Index for faster searching of join table by treatment id
+
+CREATE INDEX treatment_id_join_index
+ON join_treatments_medical_histories (treatment_id);
+
