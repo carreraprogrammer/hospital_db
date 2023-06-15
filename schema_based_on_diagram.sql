@@ -66,3 +66,17 @@ ON join_treatments_medical_histories (treatment_id);
 CREATE INDEX medical_id_join_index
 ON join_treatments_medical_histories (medical_history_id);
 
+
+-- Table to store invoice items information
+
+CREATE TABLE invoice_items (
+id int PRIMARY KEY IDENTITY (1,1),
+unit_price decimal,
+quantity int,
+total_price decimal,
+invoice_id int,
+treatment_id int,
+FOREIGN KEY (treatment_id) REFERENCES treatments(id),
+FOREIGN KEY (invoice_id) REFERENCES invoices(id)
+);
+
