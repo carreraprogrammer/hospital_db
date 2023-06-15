@@ -17,3 +17,7 @@ patient_id int,
 FOREIGN KEY (patient_id) REFERENCES patients(id),
 status varchar
 );
+
+-- Index for faster searching of medical histories by patient id
+CREATE INDEX patient_id_medical_histories_index
+ON medical_histories (patient_id);
