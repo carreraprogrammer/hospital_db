@@ -84,3 +84,8 @@ FOREIGN KEY (invoice_id) REFERENCES invoices(id)
 
 CREATE INDEX treatment_id_invoice_items_index
 ON invoice_items (treatment_id);
+
+-- Index for faster searching of invoice items by invoice id
+
+CREATE INDEX invoice_id_invoice_items_index
+ON invoice_items (invoice_id);
