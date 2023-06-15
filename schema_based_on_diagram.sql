@@ -21,3 +21,13 @@ status varchar
 -- Index for faster searching of medical histories by patient id
 CREATE INDEX patient_id_medical_histories_index
 ON medical_histories (patient_id);
+
+-- Table to store invoice information
+CREATE TABLE invoices(
+id int PRIMARY KEY IDENTITY (1,1),
+total_amount decimal,
+generated_at datetime,
+payed_at timestamp,
+medical_history_id int,
+FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id)
+);
