@@ -23,6 +23,7 @@ CREATE INDEX patient_id_medical_histories_index
 ON medical_histories (patient_id);
 
 -- Table to store invoice information
+
 CREATE TABLE invoices(
 id int PRIMARY KEY IDENTITY (1,1),
 total_amount decimal,
@@ -31,3 +32,8 @@ payed_at timestamp,
 medical_history_id int,
 FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id)
 );
+
+-- Index for faster searching of invoices by medical history id
+
+CREATE INDEX medical_id_invoices_index
+ON invoices (medical_history_id);
