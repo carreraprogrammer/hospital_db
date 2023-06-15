@@ -89,16 +89,3 @@ ON invoice_items (treatment_id);
 
 CREATE INDEX invoice_id_invoice_items_index
 ON invoice_items (invoice_id);
-
--- Table to store invoice items information
-
-CREATE TABLE invoice_items (
-id int PRIMARY KEY IDENTITY (1,1),
-unit_price decimal,
-quantity int,
-total_price decimal,
-invoice_id int,
-treatment_id int,
-FOREIGN KEY (treatment_id) REFERENCES treatments(id),
-FOREIGN KEY (invoice_id) REFERENCES invoices(id)
-);
