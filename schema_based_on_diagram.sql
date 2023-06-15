@@ -37,3 +37,10 @@ FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id)
 
 CREATE INDEX medical_id_invoices_index
 ON invoices (medical_history_id);
+
+-- Table to store treatment information
+CREATE TABLE treatments(
+id int PRIMARY KEY IDENTITY (1,1),
+type varchar,
+name varchar
+);
